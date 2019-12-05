@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body ng-controller="dptCtrl">
+    <div>
+        <div>
+            <h4> Departments Details </h4>
+            <table>
+                <tr>
+                    <td>
+                        Department ID
+                    </td>
+                    <td>
+                        Department Name
+                    </td>
+                </tr>
+                <tr ng-repeat="dpts in listOfDepartments">
+                    <td>
+
+                        {{dpts.departmentId}}
+
+                    </td>
+                    <td>
+                        <button ng-click="getEmployeesByID(dpts.departmentId)">{{dpts.departmentName}}</button>
+
+
+                    </td>
+                </tr>
+            </table>
+        </div>
+        </div>
+    <div ng-show="revealEmployeeTable">
+
+        <h4>
+            Employees Details
+        </h4>
+        <table>
+            <tr>
+                <td>
+                    Employee ID
+                </td>
+                <td>
+                    Employee Name
+                </td>
+                <td>
+                    Department Name
+                </td>
+                <td>
+                    Gender
+                </td>
+                <td>
+                    City
+                </td>
+            </tr>
+            <tr ng-repeat="emp in listOfEmployees">
+                <td>
+                    {{emp.employeeID}}
+                </td>
+                <td>
+                    {{emp.employeeName}}
+                </td>
+                <td>
+                    {{emp.departmentID}}
+                </td>
+                <td>
+                    {{emp.gender}}
+                </td>
+                <td>
+                    {{emp.city}}
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EmployeeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblDepartment">
+    <Key>
+      <PropertyRef Name="departmentId" />
+    </Key>
+    <Property Name="departmentName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="departmentId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tblEmployees" Relationship="Self.FK__tblEmploy__depar__25869641" FromRole="tblDepartment" ToRole="tblEmployee" />
+  </EntityType>
+  <EntityType Name="tblEmployee">
+    <Key>
+      <PropertyRef Name="employeeID" />
+    </Key>
+    <Property Name="employeeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="employeeID" Type="Int32" Nullable="false" />
+    <Property Name="gender" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="departmentID" Type="Int32" />
+    <NavigationProperty Name="tblDepartment" Relationship="Self.FK__tblEmploy__depar__25869641" FromRole="tblEmployee" ToRole="tblDepartment" />
+  </EntityType>
+  <Association Name="FK__tblEmploy__depar__25869641">
+    <End Role="tblDepartment" Type="EmployeeModel.tblDepartment" Multiplicity="0..1" />
+    <End Role="tblEmployee" Type="EmployeeModel.tblEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblDepartment">
+        <PropertyRef Name="departmentId" />
+      </Principal>
+      <Dependent Role="tblEmployee">
+        <PropertyRef Name="departmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EmployeeDataModelContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblDepartments" EntityType="EmployeeModel.tblDepartment" />
+    <EntitySet Name="tblEmployees" EntityType="EmployeeModel.tblEmployee" />
+    <AssociationSet Name="FK__tblEmploy__depar__25869641" Association="Self.FK__tblEmploy__depar__25869641">
+      <End Role="tblDepartment" EntitySet="tblDepartments" />
+      <End Role="tblEmployee" EntitySet="tblEmployees" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

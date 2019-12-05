@@ -1,0 +1,32 @@
+﻿@model IEnumerable<FirstMVCDemo.Models.Employee>
+
+@using FirstMVCDemo.Models
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>View2</title>
+</head>
+<body>
+    <div> 
+        <h2> Employees List</h2>
+        <ul>
+            @foreach(Employee emp in @Model)
+            { 
+                <li>
+                    @Html.ActionLink(emp.employeeName, "View1", new { id = emp.employeeID })
+
+            </li>
+            }
+        </ul>
+    </div>
+</body>
+
+@Html.ActionLink("Back to Department list", "Details", "Department")
+</html>

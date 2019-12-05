@@ -1,0 +1,113 @@
+﻿
+@{
+    
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EmpData</title>
+</head>
+<body ng-controller="empCtrl">
+    
+
+    <div>
+        <form name="employeeForm" novalidate>
+            <p>
+                <label>EMPLOYEE NAME </label>
+                <input type="text" name="ename" ng-model="newEmp.employeeName" required>
+            <p style="color:red" ng-if="employeeForm.ename.$invalid && !employeeForm.ename.$pristine ">              
+                <span ng-show="submitted && employeeForm.ename.$error.required">Employee Name is Required</span>
+            </p>
+            </p>
+            
+            <p>
+                <label>EMPLOYEE ID</label>
+                <input type="number" name="EID" ng-model="newEmp.employeeID" required >
+                <span style="color:red" ng-if="employeeForm.EID.$dirty && employeeForm.EID.$invalid">
+                    <span ng-show="submitted && employeeForm.EID.$error.required">Employee ID is Required</span>
+                    <span ng-show="employeeForm.EID.$error.number">Employee ID should be number</span>
+                </span>
+            </p>
+            <p>
+                <label>CITY</label>
+                <input type="text" ng-model="newEmp.city" required name="City" />
+                <span style="color:red" ng-if="employeeForm.City.$dirty && employeeForm.City.$invalid">
+                    <span ng-show="submitted && employeeForm.City.$error.required">City is Required</span>
+                </span>
+            </p>
+            <p>
+                <label>GENDER</label>
+                <input type="radio" ng-model="newEmp.gender" value="F">F
+                <input type="radio" ng-model="newEmp.gender" value="M">M
+            </p>
+            <p>
+                <label>DEPARTMENT NAME</label>
+                <select ng-model="newEmp.departmentID">
+                    <option value="1">ECE
+                    <option value="2">CSE
+                    <option value="3">LIC
+                    <option value="4">Pre-KG
+                </select>
+            </p>
+            <p>
+                <input type="submit" value="SAVE" ng-click="saveEmplDetails(newEmp)" ng-disabled="saveValue">
+                <input type="submit" value="UPDATE" ng-click="updateEmplDetails(newEmp)" ng-disabled="updateValue" >
+            </p>
+            
+        </form>
+    </div>
+    <br />
+    <br />
+    <div>
+        <h4>Employee Details</h4>
+        <table>
+            <tr>
+                <td>
+                    Employee Name
+                </td>
+                <td>
+                    Employee Id
+                </td>
+                <td>
+                    Gender
+                </td>
+                <td>
+                    City
+                </td>
+                <td>
+                    DepartmentID
+                </td>
+            </tr>
+            <tr ng-repeat="emp in listOfAllEmployees">
+                <td>
+                    {{emp.employeeName}}
+                </td>
+                <td>
+                    {{emp.employeeID}}
+                </td>
+                <td>
+                    {{emp.gender}}
+                </td>
+                <td>
+                    {{emp.city}}
+                </td>
+                <td>
+                    {{emp.departmentID}}
+                </td>
+                <td>
+                    <button ng-click="getEmplById(emp.employeeID)">EDIT </button>
+                </td>
+                <td>
+                    <button ng-click="deleteemplDetails(emp)">DELETE</button>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+</body>
+</html>

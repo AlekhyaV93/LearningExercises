@@ -1,0 +1,28 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    
+</head>
+<body>
+    <div>
+        <h2>Countries List</h2>
+        <ul>
+            @foreach (string country in (List<string>)ViewData["Countries"])
+            {
+                <li>
+                    @country
+                </li>
+            }
+        </ul>
+    </div>
+</body>
+</html>

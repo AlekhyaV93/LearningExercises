@@ -1,0 +1,48 @@
+﻿@model FirstMVCDemo.Models.Employee
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>View1</title>
+</head>
+<body>
+    <h2>Employee Details</h2>
+    <div> 
+        <table>
+            <tr>
+                <td>
+                    <b>Employee Name</b>
+                </td>
+                <td>
+                    @Model.employeeName
+                </td>
+            </tr>
+            <tr>
+                <td><b>Employee ID</b></td>
+                <td>
+                    @Model.employeeID
+                </td>
+            </tr>
+            <tr>
+                <td><b>Gender</b></td>
+                <td>
+                    @Model.gender
+                </td>
+            </tr>
+            <tr>
+                <td><b>City</b></td>
+                <td>
+                    @Model.city
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+@Html.ActionLink("Back to Employee list", "View2", new {id= Model.departmentID })
+</html>
