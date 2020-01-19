@@ -1,0 +1,38 @@
+﻿<div class="container center_div">
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-sm-offset-2 col-sm-2">Environment</label>
+            <div class="col-sm-4">
+                <!--<div class="dropdown">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                        Select Environment
+                        <span class="caret"></span>
+                    </button>
+                        <ul class="dropdown-menu">
+                            <li ng-repeat="en in env" ><a>{{en}}</a></li>
+                        </ul>
+                </div>-->
+                <select class="form-control" id="selEnv" ng-model="enviro" ng-change="checkdis()">
+                    <option disabled selected value="">--Select Environment--</option>
+                    <option ng-repeat="en in env">{{en.name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-offset-2 col-sm-2">Affinity</label>
+            <div class="col-sm-4">
+                <select class="form-control" id="selAff" ng-model="affin" ng-change="checkdis()">
+                    <option disabled selected value="">--Select Affinity--</option>
+                    <option>Active</option>
+                    <option>Failover</option>
+                </select>
+            </div>
+        </div>
+        <br />
+        <div class="form-group">
+            <div class="col-sm-offset-4">
+                <button type="submit" class="btn btn-default" ng-click="popUp('/exec')" ng-disabled="selectStatus">Fetch Servers Data</button>
+            </div>
+        </div>
+    </form>
+</div>

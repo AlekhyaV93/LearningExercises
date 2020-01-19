@@ -1,0 +1,52 @@
+﻿<div class="container-fluid">
+    <div class="col-sm-2">
+        <form>
+            <div class="form-group">
+                <label class="control-label">Environment</label>
+                <input type="text" class="form-control" ng-model="homeValues.enData" />
+            </div>
+            <div class="form-group">
+                <label class="control-label ">Affinity</label>
+                <input type="text" class="form-control" ng-model="homeValues.affData" />
+            </div>
+            <div class="form-group">
+                <label class="control-label ">Container</label>
+                <select class="form-control" ng-model="container" ng-change="checkdis()">
+                    <option disabled selected value="">--Select Container--</option>
+                    <option ng-repeat="su in scaleUnit">{{su.name}}</option>
+
+                </select>
+            </div>
+            <button type="submit" class="btn btn-default">Readiness Check</button><br /><br />
+            <button type="submit" class="btn btn-default" ng-click="getData()">Execution</button>
+            
+        </form>
+    </div>
+    <div class="col-sm-6" ng-if="showTable">
+        <table id="serversTable" init-table="options" data-height="580" ></table>
+
+       <!-- <table id="table" class="table table-striped" >
+            <thead>
+                <tr>
+                    
+                    <th>User ID</th>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Body</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="rd in reqData">
+                    
+                    <td>{{rd.userId}}</td>
+                    <td>{{rd.id}}</td>
+                    <td>{{rd.title}}</td>
+                    <td>{{rd.body}}</td>
+                </tr>
+            </tbody>
+        </table>-->
+    </div>
+    <div class="col-sm-4">
+        <textarea class="form-control" id="logData" placeholder="Logs" style="width:100%" rows="25"></textarea>
+    </div>
+</div>

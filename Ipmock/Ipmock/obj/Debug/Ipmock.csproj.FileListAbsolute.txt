@@ -1,0 +1,6 @@
+c:\users\dell\documents\visual studio 2013\Projects\Ipmock\Ipmock\bin\Ipmock.dll.config
+c:\users\dell\documents\visual studio 2013\Projects\Ipmock\Ipmock\bin\Ipmock.dll
+c:\users\dell\documents\visual studio 2013\Projects\Ipmock\Ipmock\bin\Ipmock.pdb
+c:\users\dell\documents\visual studio 2013\Projects\Ipmock\Ipmock\obj\Debug\Ipmock.csprojResolveAssemblyReference.cache
+c:\users\dell\documents\visual studio 2013\Projects\Ipmock\Ipmock\obj\Debug\Ipmock.dll
+c:\users\dell\documents\visual studio 2013\Projects\Ipmock\Ipmock\obj\Debug\Ipmock.pdb
